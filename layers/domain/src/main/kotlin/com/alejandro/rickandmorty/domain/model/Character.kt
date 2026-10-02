@@ -1,16 +1,16 @@
 package com.alejandro.rickandmorty.domain.model
 
 data class Character(
-    val id: Int,
-    val name: String,
-    val status: String,
-    val species: String,
-    val type: String,
-    val gender: CharacterGender,
-    val origin: String,
-    val location: String,
-    val image: String,
-    val episode: List<String>,
-    val url: String,
-    val created: String
+    val id: Int = 0,
+    val name: String = "RICK",
+    val status: CharacterStatus = CharacterStatus.UNKNOWN,
+    val species: String = "Especia",
+    val type: String = "tipo",
+    val gender: CharacterGender = CharacterGender.UNKNOWN,
+    val origin: String = "",
+    val location: String = "",
+    val image: String = "",
+    val episode: List<String> = listOf(""),
+    val url: String = "",
+    val created: String = ""
 )
