@@ -1,5 +1,6 @@
 package com.alejandro.rickandmorty.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alejandro.rickandmorty.domain.usecase.GetCharacterListUseCase
@@ -29,7 +30,8 @@ class CharacterListViewModel(
                         characterList = it.characterList + model.characters,
                         loading = false,
                         currentPage = 1 + it.currentPage,
-                        hasNextPage = model.hasNextPage
+                        hasNextPage = model.hasNextPage,
+                        isError = false
                     )
                 }
             }
@@ -40,15 +42,19 @@ class CharacterListViewModel(
                         isError = true
                     )
                 }
+                Log.w("RRRR", "Error loading characters ${it}")
 
             }
         }
     }
 
-    public fun loadNextPage() {
+    fun loadNextPage() {
         with (state.value) { if (loading || !hasNextPage) return }
         _state.update {
-            it.copy(loading = true)
+            it.copy(
+                loading = true,
+                isError = false
+            )
         }
         loadCharacters()
     }

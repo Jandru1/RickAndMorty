@@ -1,5 +1,6 @@
 package com.alejandro.rickandmorty.presentation.components
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -24,7 +25,10 @@ fun CharacterListPreview() {
         CharacterModel(name = "Summer"),
         CharacterModel(name = "Rick")
     )
-    TryAgainButton({})
+    CharacterList(
+        characterModels = items,
+        onClick = {}
+    )
 }
 @Composable
 fun CharacterList(
@@ -51,33 +55,19 @@ fun CharacterList(
         if(hasNextPage) {
 
             item {
-                if(isError) {
-                    TryAgainButton(onLoadMore)
-                }
-                else {
-                    LaunchedEffect(Unit) { onLoadMore() }
-                    CircularProgressIndicator()
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    if(isError) {
+                        TryAgainButton(onLoadMore)
+                    }
+                    else {
+                        LaunchedEffect(Unit) { onLoadMore() }
+                        CircularProgressIndicator()
+                    }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun TryAgainButton(
-    onLoadMore: () -> Unit
-) {
-    Column(
-        modifier = Modifier.padding(5.dp)
-            .fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text("No se han podido cargar los personajes")
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { onLoadMore() },
-        ) {
-            Text(text = "Try Again")
         }
     }
 }
