@@ -25,9 +25,9 @@ class CharacterListViewModel(
             val result = getCharacterListUseCase(state.value.currentPage+1)
             _state.update {
                 it.copy(
-                    characterList = result.characters + state.value.characterList,
+                    characterList = it.characterList + result.characters ,
                     loading = false,
-                    currentPage = 1 + state.value.currentPage,
+                    currentPage = 1 + it.currentPage,
                     hasNextPage = result.hasNextPage
                 )
             }
