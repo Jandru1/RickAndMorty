@@ -1,8 +1,8 @@
 package com.alejandro.rickandmorty.presentation.components
 
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,19 +25,21 @@ fun CharacterListPreview() {
 }
 @Composable
 fun CharacterList(
-    items: List<Character>,
+    characters: List<Character>,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: (Character) -> Unit
 ) {
-    Column(
+    LazyColumn(
         modifier = modifier
             .padding(5.dp)
     ) {
-        items.forEach { item ->
+        items(
+            items = characters,
+        ) { character ->
             CharacterCard(
-                character = item,
-                modifier = modifier,
-                onClick = onClick
+                character = character,
+                modifier = Modifier,
+                onClick = { onClick(character) }
             )
         }
     }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -13,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -52,20 +54,22 @@ fun CharacterCard(
     ) {
         Row (
             verticalAlignment = Alignment.CenterVertically,
-            modifier = modifier.padding(12.dp)
+            modifier = Modifier.padding(12.dp)
         ){
             Column(
-                modifier = modifier
-                    .width(IntrinsicSize.Min)
+                modifier = Modifier
+                    .weight(0.35f)
             ) {
                 AsyncImage(
                     model = character.image,
                     contentDescription = "Imagen del personaje",
                     placeholder = painterResource(id = R.drawable.squid_costume_jerry),
-                    modifier = modifier.size(100.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(1f)
                 )
                 Text(
-                    modifier = modifier
+                    modifier = Modifier
                         .fillMaxWidth()
                         .padding(3.dp),
                     textAlign = TextAlign.Center,
@@ -73,13 +77,13 @@ fun CharacterCard(
                 )
             }
             Column(
-                modifier = modifier.weight(1f)
+                modifier = Modifier.weight(0.65f)
                     .padding(start = 12.dp)
             ) {
                 Text(
                     textAlign = TextAlign.Justify,
                     text = "${character.name} es un personaje de especie ${character.species}",
-                    color = Color.Black,
+                    color = Color.White,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
