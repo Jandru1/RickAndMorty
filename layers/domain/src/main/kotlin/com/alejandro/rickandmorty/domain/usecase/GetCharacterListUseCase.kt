@@ -5,5 +5,5 @@ import com.alejandro.rickandmorty.domain.model.CharacterModel
 
 interface GetCharacterListUseCase {
 
-    suspend operator fun invoke(page: Int): CharacterListModel
+    suspend operator fun invoke(page: Int): Result<CharacterListModel>
 }

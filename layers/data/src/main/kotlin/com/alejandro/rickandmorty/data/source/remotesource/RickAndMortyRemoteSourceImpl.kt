@@ -10,6 +10,6 @@ class RickAndMortyRemoteSourceImpl(
     private val mapper: RickAndMortyRemoteMapper
 ) : RickAndMortyRemoteSource{
 
-    override suspend fun getCharacterList(page: Int): CharacterListModel =
-        mapper.toModel(api.getCharacterList(page))
+    override suspend fun getCharacterList(page: Int): Result<CharacterListModel> =
+        runCatching { mapper.toModel(api.getCharacterList(page)) }
 }

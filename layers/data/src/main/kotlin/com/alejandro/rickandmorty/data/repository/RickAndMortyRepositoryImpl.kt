@@ -9,6 +9,6 @@ class RickAndMortyRepositoryImpl(
     private val remoteSource: RickAndMortyRemoteSource
 ): RickAndMortyRepository {
 
-    override suspend fun getCharacterList(page: Int): CharacterListModel =
+    override suspend fun getCharacterList(page: Int): Result<CharacterListModel> =
         remoteSource.getCharacterList(page)
 }

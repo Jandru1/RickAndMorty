@@ -23,15 +23,25 @@ class CharacterListViewModel(
     private fun loadCharacters() {
         viewModelScope.launch {
             val result = getCharacterListUseCase(state.value.currentPage+1)
-            _state.update {
-                it.copy(
-                    characterList = it.characterList + result.characters ,
-                    loading = false,
-                    currentPage = 1 + it.currentPage,
-                    hasNextPage = result.hasNextPage
-                )
+            result.onSuccess { model ->
+                _state.update {
+                    it.copy(
+                        characterList = it.characterList + model.characters,
+                        loading = false,
+                        currentPage = 1 + it.currentPage,
+                        hasNextPage = model.hasNextPage
+                    )
+                }
             }
+            result.onFailure {
+                _state.update {
+                    it.copy(
+                        loading = false,
+                        isError = true
+                    )
+                }
 
+            }
         }
     }
 
