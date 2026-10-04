@@ -5,9 +5,7 @@ import retrofit2.http.GET
 
 interface RickAndMortyApi {
 
-    @GET(path)
+    @GET("character")
     suspend fun getCharacterList(): ResponseCharacterEntity
 
 }
-
-const val path = "https://rickandmortyapi.com/api/character"

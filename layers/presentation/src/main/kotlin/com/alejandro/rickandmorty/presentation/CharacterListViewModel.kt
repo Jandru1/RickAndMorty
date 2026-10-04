@@ -1,11 +1,13 @@
 package com.alejandro.rickandmorty.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.domain.usecase.GetCharacterListUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class CharacterListViewModel(
     private val getCharacterListUseCase: GetCharacterListUseCase
@@ -21,10 +23,13 @@ class CharacterListViewModel(
 
 
     private fun loadCharacters() {
-        _state.update {
-            it.copy(
-                characterModelList = example
-            )
+        viewModelScope.launch {
+            val result = getCharacterListUseCase(1)
+            _state.update {
+                it.copy(
+                    characterModelList = result
+                )
+            }
         }
     }
 }

@@ -10,5 +10,5 @@ class RickAndMortyRemoteSourceImpl(
 ) : RickAndMortyRemoteSource{
 
     override suspend fun getCharacterList(): List<CharacterModel> =
-        mapper.toModel(api.getCharacterList()) //Falta el mapeo a un modelo controlable
+        mapper.toModel(api.getCharacterList())
 }

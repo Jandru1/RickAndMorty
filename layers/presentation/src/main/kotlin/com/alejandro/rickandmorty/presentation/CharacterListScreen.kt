@@ -4,16 +4,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.presentation.components.CharacterList
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun CharacterListScreen(
     modifier: Modifier = Modifier,
 ) {
 
-    val viewModel: CharacterListViewModel = viewModel()
+    val viewModel: CharacterListViewModel = koinViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     CharacterList(
