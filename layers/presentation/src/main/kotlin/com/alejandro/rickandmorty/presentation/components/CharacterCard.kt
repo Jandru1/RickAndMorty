@@ -57,7 +57,6 @@ fun CharacterCard(
                 AsyncImage(
                     model = characterModel.image,
                     contentDescription = "Imagen del personaje",
-                    placeholder = painterResource(id = R.drawable.squid_costume_jerry),
                     modifier = Modifier
                         .fillMaxWidth()
                         .aspectRatio(1f)

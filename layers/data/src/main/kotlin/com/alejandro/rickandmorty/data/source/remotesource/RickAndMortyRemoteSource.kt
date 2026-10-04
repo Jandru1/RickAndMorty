@@ -1,8 +1,8 @@
 package com.alejandro.rickandmorty.data.source.remotesource
 
-import com.alejandro.rickandmorty.domain.model.CharacterModel
+import com.alejandro.rickandmorty.domain.model.CharacterListModel
 
 interface RickAndMortyRemoteSource {
 
-    suspend fun getCharacterList(): List<CharacterModel>
+    suspend fun getCharacterList(page: Int): CharacterListModel
 }

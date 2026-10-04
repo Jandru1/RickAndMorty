@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alejandro.rickandmorty.presentation.components.CharacterList
 import org.koin.androidx.compose.koinViewModel
+import androidx.compose.runtime.collectAsState
 
 @Composable
 fun CharacterListScreen(
@@ -17,7 +18,9 @@ fun CharacterListScreen(
 
     CharacterList(
         modifier = modifier,
-        characterModels = state.characterModelList,
-        onClick = {}
+        characterModels = state.characterList,
+        onClick = {},
+        onLoadMore = { viewModel.loadNextPage() },
+        hasNextPage = state.hasNextPage
     )
 }

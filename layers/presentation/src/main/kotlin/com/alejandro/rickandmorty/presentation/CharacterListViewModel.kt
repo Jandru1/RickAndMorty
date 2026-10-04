@@ -2,7 +2,6 @@ package com.alejandro.rickandmorty.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.domain.usecase.GetCharacterListUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,30 +17,29 @@ class CharacterListViewModel(
     val state = _state.asStateFlow()
 
     init {
-        loadCharacters()
+        loadNextPage()
     }
-
 
     private fun loadCharacters() {
         viewModelScope.launch {
-            val result = getCharacterListUseCase(1)
+            val result = getCharacterListUseCase(state.value.currentPage+1)
             _state.update {
                 it.copy(
-                    characterModelList = result
+                    characterList = result.characters + state.value.characterList,
+                    loading = false,
+                    currentPage = 1 + state.value.currentPage,
+                    hasNextPage = result.hasNextPage
                 )
             }
+
         }
     }
-}
 
-val example = listOf(
-    CharacterModel(
-        name = "Million Ants",
-        image = "https://rickandmortyapi.com/api/character/avatar/226.jpeg"),
-    CharacterModel(
-        name = "Simple Rick",
-        image = "https://rickandmortyapi.com/api/character/avatar/322.jpeg"),
-    CharacterModel(
-        name = "Xing Ho",
-        image = "https://rickandmortyapi.com/api/character/avatar/721.jpeg")
-)
+    public fun loadNextPage() {
+        with (state.value) { if (loading || !hasNextPage) return }
+        _state.update {
+            it.copy(loading = true)
+        }
+        loadCharacters()
+    }
+}

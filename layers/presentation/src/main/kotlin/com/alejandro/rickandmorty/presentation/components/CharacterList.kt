@@ -3,7 +3,9 @@ package com.alejandro.rickandmorty.presentation.components
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,7 +29,9 @@ fun CharacterListPreview() {
 fun CharacterList(
     characterModels: List<CharacterModel>,
     modifier: Modifier = Modifier,
-    onClick: (CharacterModel) -> Unit
+    onClick: (CharacterModel) -> Unit,
+    hasNextPage: Boolean = true,
+    onLoadMore: () -> Unit = {}
 ) {
     LazyColumn(
         modifier = modifier
@@ -41,6 +45,12 @@ fun CharacterList(
                 modifier = Modifier,
                 onClick = { onClick(character) }
             )
+        }
+        if(hasNextPage) {
+            item {
+                LaunchedEffect(Unit) { onLoadMore() }
+                CircularProgressIndicator()
+            }
         }
     }
 }
