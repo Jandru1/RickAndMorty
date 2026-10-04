@@ -27,10 +27,13 @@ class CharacterListViewModel: ViewModel() {
 }
 
 val example = listOf(
-    CharacterModel(name = "Million Ants",
+    CharacterModel(
+        name = "Million Ants",
         image = "https://rickandmortyapi.com/api/character/avatar/226.jpeg"),
-    CharacterModel(name = "Simple Rick",
+    CharacterModel(
+        name = "Simple Rick",
         image = "https://rickandmortyapi.com/api/character/avatar/322.jpeg"),
-    CharacterModel(name = "Xing Ho",
+    CharacterModel(
+        name = "Xing Ho",
         image = "https://rickandmortyapi.com/api/character/avatar/721.jpeg")
 )

@@ -5,7 +5,7 @@ import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.domain.repository.RickAndMortyRepository
 
 class RickAndMortyRepositoryImpl(
-    val remoteSource: RickAndMortyRemoteSource
+    private val remoteSource: RickAndMortyRemoteSource
 ): RickAndMortyRepository {
 
     override suspend fun getCharacterList(): List<CharacterModel> =

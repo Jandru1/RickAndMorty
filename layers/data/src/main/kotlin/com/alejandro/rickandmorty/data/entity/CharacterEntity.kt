@@ -5,6 +5,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 class CharacterEntity(
+    @property:Json(name = "id") open val id: Int? = null,
     @property:Json(name = "name") open val name: String? = null,
     @property:Json(name = "status") open val status: String? = null,
     @property:Json(name = "species") open val species: String? = null,
