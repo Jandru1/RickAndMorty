@@ -7,15 +7,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.alejandro.rickandmorty.domain.model.Character
+import com.alejandro.rickandmorty.domain.model.CharacterModel
 
 @Preview(showBackground = true)
 @Composable
 fun CharacterListPreview() {
     val items = listOf(
-        Character(name = "Jerry"),
-        Character(name = "Summer"),
-        Character(name = "Rick")
+        CharacterModel(name = "Jerry"),
+        CharacterModel(name = "Summer"),
+        CharacterModel(name = "Rick")
     )
     CharacterList(
         items,
@@ -25,19 +25,19 @@ fun CharacterListPreview() {
 }
 @Composable
 fun CharacterList(
-    characters: List<Character>,
+    characterModels: List<CharacterModel>,
     modifier: Modifier = Modifier,
-    onClick: (Character) -> Unit
+    onClick: (CharacterModel) -> Unit
 ) {
     LazyColumn(
         modifier = modifier
             .padding(5.dp)
     ) {
         items(
-            items = characters,
+            items = characterModels,
         ) { character ->
             CharacterCard(
-                character = character,
+                characterModel = character,
                 modifier = Modifier,
                 onClick = { onClick(character) }
             )

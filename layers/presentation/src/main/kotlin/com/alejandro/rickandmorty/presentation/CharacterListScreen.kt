@@ -1,28 +1,32 @@
 package com.alejandro.rickandmorty.presentation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.alejandro.rickandmorty.domain.model.Character
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.presentation.components.CharacterList
 
 @Composable
 fun CharacterListScreen(
     modifier: Modifier = Modifier,
-    characterList: List<Character> = exampleList
+    characterModelList: List<CharacterModel> = exampleList
 ) {
+
+    val viewModel: CharacterListViewModel = viewModel()
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
     CharacterList(
         modifier = modifier,
-        characters = characterList,
+        characterModels = state.characterModelList,
         onClick = {}
     )
 }
 
 
 val exampleList = listOf(
-    Character(name = "Million Ants",
-        image = "https://rickandmortyapi.com/api/character/avatar/226.jpeg"),
-    Character(name = "Simple Rick",
-        image = "https://rickandmortyapi.com/api/character/avatar/322.jpeg"),
-    Character(name = "Xing Ho",
-        image = "https://rickandmortyapi.com/api/character/avatar/721.jpeg")
+    CharacterModel(name = "Million Ants"),
+    CharacterModel(name = "Simple Rick"),
+    CharacterModel(name = "Xing Ho")
 )

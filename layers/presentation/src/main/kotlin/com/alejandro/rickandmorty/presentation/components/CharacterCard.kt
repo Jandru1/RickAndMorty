@@ -1,22 +1,16 @@
 package com.alejandro.rickandmorty.presentation.components
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -24,18 +18,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.alejandro.rickandmorty.domain.model.Character
+import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.presentation.R
 
 @Preview(showBackground = true)
 @Composable
 fun CharacterCardPreview() {
-    val character = Character(
+    val characterModel = CharacterModel(
         image = "https://rickandmortyapi.com/api/character/avatar/705.jpeg",
         name = "Jerry"
     )
     CharacterCard(
-        character = character,
+        characterModel = characterModel,
         onClick = {}
     )
 }
@@ -43,7 +37,7 @@ fun CharacterCardPreview() {
 
 @Composable
 fun CharacterCard(
-    character: Character,
+    characterModel: CharacterModel,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -61,7 +55,7 @@ fun CharacterCard(
                     .weight(0.35f)
             ) {
                 AsyncImage(
-                    model = character.image,
+                    model = characterModel.image,
                     contentDescription = "Imagen del personaje",
                     placeholder = painterResource(id = R.drawable.squid_costume_jerry),
                     modifier = Modifier
@@ -73,7 +67,7 @@ fun CharacterCard(
                         .fillMaxWidth()
                         .padding(3.dp),
                     textAlign = TextAlign.Center,
-                    text = character.name
+                    text = characterModel.name
                 )
             }
             Column(
@@ -82,7 +76,7 @@ fun CharacterCard(
             ) {
                 Text(
                     textAlign = TextAlign.Justify,
-                    text = "${character.name} es un personaje de especie ${character.species}",
+                    text = "${characterModel.name} es un personaje de especie ${characterModel.species}",
                     color = Color.White,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold

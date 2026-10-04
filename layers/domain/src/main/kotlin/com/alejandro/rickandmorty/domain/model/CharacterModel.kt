@@ -1,6 +1,6 @@
 package com.alejandro.rickandmorty.domain.model
 
-data class Character(
+data class CharacterModel(
     val id: Int = 0,
     val name: String = "RICK",
     val status: CharacterStatus = CharacterStatus.UNKNOWN,
