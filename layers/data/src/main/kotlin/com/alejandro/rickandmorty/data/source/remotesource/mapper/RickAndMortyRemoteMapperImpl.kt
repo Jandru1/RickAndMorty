@@ -10,11 +10,9 @@ import com.alejandro.rickandmorty.domain.model.CharacterStatus
 class RickAndMortyRemoteMapperImpl : RickAndMortyRemoteMapper {
 
     override fun toModel(responseCharacterEntity: ResponseCharacterEntity): List<CharacterModel> {
-        val characters = mutableListOf<CharacterModel>()
-        responseCharacterEntity.results?.forEach {
-            characters.add(mapCharacter(it))
+        return responseCharacterEntity.results.orEmpty().map {
+            mapCharacter(it)
         }
-        return characters
     }
 
     private fun mapCharacter(characterEntity: CharacterEntity): CharacterModel {

@@ -11,7 +11,6 @@ import com.alejandro.rickandmorty.presentation.components.CharacterList
 @Composable
 fun CharacterListScreen(
     modifier: Modifier = Modifier,
-    characterModelList: List<CharacterModel> = exampleList
 ) {
 
     val viewModel: CharacterListViewModel = viewModel()
@@ -23,10 +22,3 @@ fun CharacterListScreen(
         onClick = {}
     )
 }
-
-
-val exampleList = listOf(
-    CharacterModel(name = "Million Ants"),
-    CharacterModel(name = "Simple Rick"),
-    CharacterModel(name = "Xing Ho")
-)

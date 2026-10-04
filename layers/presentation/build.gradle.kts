@@ -36,5 +36,7 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.lifecycle.runtime.compose)
     implementation(libs.lifecycle.viewmodel.compose )
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.androidx.compose)
 
 }

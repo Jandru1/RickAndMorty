@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class LocationEntity(
-    @property:Json(name = "name") open val name: String? = null,
-    @property:Json(name = "url") open val url: String? = null
+class LocationDataEntity(
+    @property:Json(name = "name") val name: String? = null,
+    @property:Json(name = "url") val url: String? = null
 )

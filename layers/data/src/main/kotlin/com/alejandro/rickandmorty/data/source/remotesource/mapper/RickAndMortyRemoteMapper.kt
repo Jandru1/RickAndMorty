@@ -5,5 +5,5 @@ import com.alejandro.rickandmorty.domain.model.CharacterModel
 
 interface RickAndMortyRemoteMapper {
 
-    abstract fun toModel(responseCharacterEntity: ResponseCharacterEntity) : List<CharacterModel>
+    fun toModel(responseCharacterEntity: ResponseCharacterEntity) : List<CharacterModel>
 }

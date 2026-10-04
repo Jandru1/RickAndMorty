@@ -2,13 +2,16 @@ package com.alejandro.rickandmorty.presentation
 
 import androidx.lifecycle.ViewModel
 import com.alejandro.rickandmorty.domain.model.CharacterModel
+import com.alejandro.rickandmorty.domain.usecase.GetCharacterListUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-class CharacterListViewModel: ViewModel() {
+class CharacterListViewModel(
+    private val getCharacterListUseCase: GetCharacterListUseCase
+): ViewModel() {
 
-    val _state = MutableStateFlow(CharacterListState())
+    private val _state = MutableStateFlow(CharacterListState())
 
     val state = _state.asStateFlow()
 
