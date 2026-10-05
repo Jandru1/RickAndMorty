@@ -13,11 +13,11 @@ val LocationDataEntityMock = LocationDataEntity(
 
 val CharacterEntityMock = CharacterEntity(
     id = 0,
-    name = "name",
-    status = "status",
+    name = "Rick",
+    status = "Alive",
     species = "species",
     type = "type",
-    gender = "gender",
+    gender = "Male",
     origin = LocationDataEntityMock,
     location = LocationDataEntityMock,
     image = "image",

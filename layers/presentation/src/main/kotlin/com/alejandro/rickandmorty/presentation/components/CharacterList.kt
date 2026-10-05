@@ -16,19 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.alejandro.rickandmorty.domain.model.CharacterModel
 
-@Preview(showBackground = true)
-@Composable
-fun CharacterListPreview() {
-    val items = listOf(
-        CharacterModel(name = "Jerry"),
-        CharacterModel(name = "Summer"),
-        CharacterModel(name = "Rick")
-    )
-    CharacterList(
-        characterModels = items,
-        onClick = {}
-    )
-}
 @Composable
 fun CharacterList(
     characterModels: List<CharacterModel>,

@@ -18,8 +18,8 @@ dependencies {
     testRuntimeOnly(libs.junit.platform.launcher)
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
+}
 
-    tasks.withType<Test> {
-        useJUnitPlatform()
-    }
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

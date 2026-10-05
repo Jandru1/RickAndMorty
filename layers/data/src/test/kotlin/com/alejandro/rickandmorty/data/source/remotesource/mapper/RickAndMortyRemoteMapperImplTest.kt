@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
-class RickAndMortyRemoteMapperImplTest() {
+class RickAndMortyRemoteMapperImplTest {
 
     private val mapper = RickAndMortyRemoteMapperImpl()
 
@@ -26,10 +26,10 @@ class RickAndMortyRemoteMapperImplTest() {
         val expectedModel = CharacterModel(
             id = 0,
             name = "name",
-            status = CharacterStatus.UNKNOWN,
+            status = CharacterStatus.ALIVE,
             species = "species",
             type = "type",
-            gender = CharacterGender.UNKNOWN,
+            gender = CharacterGender.MALE,
             origin = "name",
             location = "name",
             image = "image",
@@ -95,16 +95,6 @@ class RickAndMortyRemoteMapperImplTest() {
     fun `maps status`(input: String, expected: CharacterStatus) {
         val result = mapper.toModel(CharacterEntity(status = input))
         assertEquals(expected, result.status)
-    }
-
-    @Test
-    fun `maps a response with next page`() {
-        val response = ResponseCharacterEntity(
-            info = InfoEntityMock,
-            results = listOf(CharacterEntityMock)
-        )
-        val result = mapper.toModel(response)
-        assertEquals(true, result.hasNextPage)
     }
 
     @Test

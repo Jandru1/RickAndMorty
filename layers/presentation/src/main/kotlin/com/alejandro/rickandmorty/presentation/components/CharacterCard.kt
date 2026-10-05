@@ -27,19 +27,6 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.alejandro.rickandmorty.domain.model.CharacterModel
 
-@Preview(showBackground = true)
-@Composable
-fun CharacterCardPreview() {
-    val characterModel = CharacterModel(
-        image = "https://rickandmortyapi.com/api/character/avatar/705.jpeg",
-        name = "Jerry"
-    )
-    CharacterCard(
-        characterModel = characterModel,
-        onClick = {}
-    )
-}
-
 @Composable
 fun CharacterCard(
     characterModel: CharacterModel,
