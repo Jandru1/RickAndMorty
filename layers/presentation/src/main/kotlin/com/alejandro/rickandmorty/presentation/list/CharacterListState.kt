@@ -7,5 +7,6 @@ data class CharacterListState(
     val loading: Boolean = false,
     val currentPage: Int = 0,
     val hasNextPage: Boolean = true,
-    val error: Boolean = false
+    val error: Boolean = false,
+    val query: String = ""
 )

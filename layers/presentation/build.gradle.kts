@@ -39,4 +39,5 @@ dependencies {
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.androidx.compose)
     implementation(libs.navigation.compose)
+    implementation(libs.androidx.compose.material.icons.core)
 }

@@ -7,7 +7,7 @@ class GetCharacterListUseCaseImpl(
     private val repository: RickAndMortyRepository
 ): GetCharacterListUseCase {
 
-    override suspend fun invoke(page: Int): Result<CharacterListModel> {
-        return repository.getCharacterList(page)
+    override suspend fun invoke(page: Int, name: String?): Result<CharacterListModel> {
+        return repository.getCharacterList(page, name)
     }
 }
