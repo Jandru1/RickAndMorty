@@ -1,7 +1,7 @@
 package com.alejandro.rickandmorty.data.api
 
-import com.alejandro.rickandmorty.data.entity.CharacterEntity
-import com.alejandro.rickandmorty.data.entity.ResponseCharacterEntity
+import com.alejandro.rickandmorty.data.entity.remote.CharacterEntity
+import com.alejandro.rickandmorty.data.entity.remote.ResponseCharacterEntity
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

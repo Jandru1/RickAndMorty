@@ -1,4 +1,4 @@
-package com.alejandro.rickandmorty.data.entity
+package com.alejandro.rickandmorty.data.entity.remote
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

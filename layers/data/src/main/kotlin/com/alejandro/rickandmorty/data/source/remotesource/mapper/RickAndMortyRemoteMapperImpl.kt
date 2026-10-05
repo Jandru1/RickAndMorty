@@ -1,7 +1,7 @@
 package com.alejandro.rickandmorty.data.source.remotesource.mapper
 
-import com.alejandro.rickandmorty.data.entity.CharacterEntity
-import com.alejandro.rickandmorty.data.entity.ResponseCharacterEntity
+import com.alejandro.rickandmorty.data.entity.remote.CharacterEntity
+import com.alejandro.rickandmorty.data.entity.remote.ResponseCharacterEntity
 import com.alejandro.rickandmorty.domain.model.CharacterGender
 import com.alejandro.rickandmorty.domain.model.CharacterListModel
 import com.alejandro.rickandmorty.domain.model.CharacterModel

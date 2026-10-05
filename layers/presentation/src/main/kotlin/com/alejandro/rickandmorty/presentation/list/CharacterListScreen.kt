@@ -13,6 +13,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alejandro.rickandmorty.presentation.components.CharacterList
@@ -53,12 +54,12 @@ fun CharacterListScreen(
             modifier = Modifier.weight(1f)
         ) {
             when {
-                state.loading && state.characterList.isEmpty()-> LoadingScreen(modifier)
-                state.error && state.characterList.isEmpty() -> ErrorScreen(onRetry = { viewModel.loadNextPage() }, modifier)
-                state.characterList.isEmpty() && state.query.isNotBlank() -> EmptyScreen(query = state.query, modifier)
+                state.loading && state.characterList.isEmpty()-> LoadingScreen(Modifier)
+                state.error && state.characterList.isEmpty() -> ErrorScreen(onRetry = { viewModel.loadNextPage() }, Modifier)
+                state.characterList.isEmpty() && state.query.isNotBlank() -> EmptyScreen(query = state.query, Modifier)
                 state.characterList.isNotEmpty() ->
                     CharacterList(
-                        modifier = modifier,
+                        modifier = Modifier,
                         characterModels = state.characterList,
                         onClick = onClick,
                         onLoadMore = { viewModel.loadNextPage() },

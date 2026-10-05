@@ -27,4 +27,5 @@ dependencies {
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.moshi)
     ksp(libs.moshi.kotlin.codegen)
+    implementation(libs.room.runtime)
 }

@@ -29,5 +29,6 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
+    implementation(libs.room.ktx)
 
 }
