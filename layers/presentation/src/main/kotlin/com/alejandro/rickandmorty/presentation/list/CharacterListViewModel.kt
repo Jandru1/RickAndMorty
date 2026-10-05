@@ -31,7 +31,7 @@ class CharacterListViewModel(
                         loading = false,
                         currentPage = 1 + it.currentPage,
                         hasNextPage = model.hasNextPage,
-                        isError = false
+                        error = false
                     )
                 }
             }
@@ -39,7 +39,7 @@ class CharacterListViewModel(
                 _state.update {
                     it.copy(
                         loading = false,
-                        isError = true
+                        error = true
                     )
                 }
                 Log.w("RRRR", "Error loading characters ${it}")
@@ -53,7 +53,7 @@ class CharacterListViewModel(
         _state.update {
             it.copy(
                 loading = true,
-                isError = false
+                error = false
             )
         }
         loadCharacters()

@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class CharacterDetailsViewModel(
+    private val characterId: Int,
     private val getCharacterDetailsUseCase: GetCharacterDetailsUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow(CharacterDetailsState())
@@ -21,7 +22,7 @@ class CharacterDetailsViewModel(
     private fun loadDetails() {
         _state.update { it.copy(loading = true) }
         viewModelScope.launch {
-            val result = getCharacterDetailsUseCase(1)
+            val result = getCharacterDetailsUseCase(characterId)
             result.onSuccess { character ->
                 _state.update {
                     it.copy(

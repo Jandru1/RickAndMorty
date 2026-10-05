@@ -22,6 +22,6 @@ fun CharacterListScreen(
         onClick = onClick,
         onLoadMore = { viewModel.loadNextPage() },
         hasNextPage = state.hasNextPage,
-        isError = state.isError
+        isError = state.error
     )
 }
