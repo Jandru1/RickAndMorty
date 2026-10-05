@@ -12,4 +12,7 @@ class RickAndMortyRemoteSourceImpl(
 
     override suspend fun getCharacterList(page: Int): Result<CharacterListModel> =
         runCatching { mapper.toModel(api.getCharacterList(page)) }
+
+    override suspend fun getCharacterDetails(id: Int): Result<CharacterModel> =
+        runCatching { mapper.toModel(api.getCharacterDetails(id)) }
 }

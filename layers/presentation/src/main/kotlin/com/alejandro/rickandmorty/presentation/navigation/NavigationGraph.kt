@@ -2,10 +2,12 @@ package com.alejandro.rickandmorty.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.alejandro.rickandmorty.presentation.CharacterListScreen
+import androidx.navigation.navArgument
+import com.alejandro.rickandmorty.presentation.list.CharacterListScreen
 import com.alejandro.rickandmorty.presentation.details.CharacterDetailsScreen
 
 @Composable
@@ -18,13 +20,22 @@ fun NavigationGraph(
         startDestination = "list",
         modifier = modifier
     ) {
-        composable("list") {
+        composable(
+            route = "list"
+        ) {
             CharacterListScreen(
-                onClick = { navController.navigate("detail")}
+                onClick = { id -> navController.navigate("detail/$id")}
             )
         }
-        composable(route = "detail") {
-            CharacterDetailsScreen()
+        composable(
+            route = "detail/{id}",
+            arguments = listOf(
+                navArgument("id") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val id = backStackEntry.arguments?.getInt("id") ?: 0
+            CharacterDetailsScreen(
+                characterId = id
+            )
         }
     }
 }

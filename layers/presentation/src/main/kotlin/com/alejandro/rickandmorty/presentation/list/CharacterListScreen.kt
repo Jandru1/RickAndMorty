@@ -1,4 +1,4 @@
-package com.alejandro.rickandmorty.presentation
+package com.alejandro.rickandmorty.presentation.list
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -6,7 +6,6 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alejandro.rickandmorty.presentation.components.CharacterList
 import org.koin.androidx.compose.koinViewModel
-import androidx.compose.runtime.collectAsState
 
 @Composable
 fun CharacterListScreen(

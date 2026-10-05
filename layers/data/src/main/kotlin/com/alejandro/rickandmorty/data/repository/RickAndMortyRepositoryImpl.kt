@@ -11,4 +11,7 @@ class RickAndMortyRepositoryImpl(
 
     override suspend fun getCharacterList(page: Int): Result<CharacterListModel> =
         remoteSource.getCharacterList(page)
+
+    override suspend fun getCharacterDetails(id: Int): Result<CharacterModel> =
+        remoteSource.getCharacterDetails(id)
 }

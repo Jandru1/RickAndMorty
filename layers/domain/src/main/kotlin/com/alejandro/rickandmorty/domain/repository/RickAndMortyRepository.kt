@@ -6,4 +6,5 @@ import com.alejandro.rickandmorty.domain.model.CharacterModel
 interface RickAndMortyRepository {
 
     suspend fun getCharacterList(page: Int): Result<CharacterListModel>
+    suspend fun getCharacterDetails(id: Int): Result<CharacterModel>
 }

@@ -1,6 +1,6 @@
 package com.alejandro.rickandmorty.lib.di.presentation
 
-import com.alejandro.rickandmorty.presentation.CharacterListViewModel
+import com.alejandro.rickandmorty.presentation.list.CharacterListViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 

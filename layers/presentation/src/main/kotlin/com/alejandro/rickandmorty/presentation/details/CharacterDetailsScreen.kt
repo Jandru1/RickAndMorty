@@ -7,7 +7,11 @@ import androidx.compose.ui.Modifier
 @Composable
 fun CharacterDetailsScreen(
     modifier: Modifier = Modifier,
-    characterId: Int = 0
+    characterId: Int
 ) {
+    Text("Character characterId of $characterId")
+    Text("Character details of $characterId")
+    Text("Character details of $characterId")
+    Text("Character details of $characterId")
     Text("Character details of $characterId")
 }

@@ -21,6 +21,10 @@ class RickAndMortyRemoteMapperImpl : RickAndMortyRemoteMapper {
         )
     }
 
+    override fun toModel(characterEntity: CharacterEntity): CharacterModel =
+        mapCharacter(characterEntity)
+
+
     private fun mapCharacter(characterEntity: CharacterEntity): CharacterModel {
         return CharacterModel(
             id = characterEntity.id ?: 0,

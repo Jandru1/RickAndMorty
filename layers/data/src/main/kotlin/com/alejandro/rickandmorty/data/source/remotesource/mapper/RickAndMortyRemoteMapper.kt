@@ -1,5 +1,6 @@
 package com.alejandro.rickandmorty.data.source.remotesource.mapper
 
+import com.alejandro.rickandmorty.data.entity.CharacterEntity
 import com.alejandro.rickandmorty.data.entity.ResponseCharacterEntity
 import com.alejandro.rickandmorty.domain.model.CharacterListModel
 import com.alejandro.rickandmorty.domain.model.CharacterModel
@@ -7,4 +8,6 @@ import com.alejandro.rickandmorty.domain.model.CharacterModel
 interface RickAndMortyRemoteMapper {
 
     fun toModel(responseCharacterEntity: ResponseCharacterEntity) : CharacterListModel
+
+    fun toModel(characterEntity: CharacterEntity) : CharacterModel
 }

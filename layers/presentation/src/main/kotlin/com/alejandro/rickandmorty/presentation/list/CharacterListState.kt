@@ -1,4 +1,4 @@
-package com.alejandro.rickandmorty.presentation
+package com.alejandro.rickandmorty.presentation.list
 
 import com.alejandro.rickandmorty.domain.model.CharacterModel
 

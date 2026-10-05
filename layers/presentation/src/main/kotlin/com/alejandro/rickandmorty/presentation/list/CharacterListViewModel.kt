@@ -1,4 +1,4 @@
-package com.alejandro.rickandmorty.presentation
+package com.alejandro.rickandmorty.presentation.list
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
