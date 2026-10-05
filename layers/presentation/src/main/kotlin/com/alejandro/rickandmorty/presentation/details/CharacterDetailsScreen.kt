@@ -2,9 +2,13 @@ package com.alejandro.rickandmorty.presentation.details
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alejandro.rickandmorty.presentation.components.CharacterDetails
+import com.alejandro.rickandmorty.presentation.components.ErrorScreen
 import org.koin.androidx.compose.koinViewModel
 import org.koin.core.parameter.parametersOf
 
@@ -18,10 +22,12 @@ fun CharacterDetailsScreen(
     val state by viewmodel.state.collectAsStateWithLifecycle()
 
     val character = state.characterDetails
-    if(character != null) {
-        CharacterDetails(
+    when {
+        state.loading -> ""
+        state.error -> ErrorScreen(
             modifier = modifier,
-            character = character
+            onRetry = { viewmodel.loadDetails() }
         )
+        character != null -> CharacterDetails(modifier, character)
     }
 }

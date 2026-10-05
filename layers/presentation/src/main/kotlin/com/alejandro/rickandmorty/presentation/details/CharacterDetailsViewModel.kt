@@ -19,8 +19,8 @@ class CharacterDetailsViewModel(
         loadDetails()
     }
 
-    private fun loadDetails() {
-        _state.update { it.copy(loading = true) }
+    fun loadDetails() {
+        _state.update { it.copy(loading = true, error = false) }
         viewModelScope.launch {
             val result = getCharacterDetailsUseCase(characterId)
             result.onSuccess { character ->
