@@ -16,3 +16,7 @@ val SpaceSurfaceContainer = Color(0xFF151C2E)  // fondo de las InfoRow
 val SpaceOutline = Color(0xFF2A3350)           // bordes finos
 val SpaceOnSurface = Color(0xFFF1F5F9)         // texto principal (casi blanco)
 val SpaceOnSurfaceVariant = Color(0xFFCBD5E1)  // texto secundario (gris azulado)
+
+val AliveGreen = Color(0xFF4ADE80)
+val DeadRed = Color(0xFFF87172)
+val UnknownGray = Color(0XFF94A3B8)

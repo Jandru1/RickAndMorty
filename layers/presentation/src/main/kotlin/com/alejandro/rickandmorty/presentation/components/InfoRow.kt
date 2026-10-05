@@ -21,8 +21,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.alejandro.rickandmorty.domain.model.CharacterStatus
 
 @Composable
 fun InfoRow(
@@ -48,7 +46,7 @@ fun InfoRow(
             ) {
                 Text(
                     text = title,
-                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     style = MaterialTheme.typography.bodyLarge
                 )
                 if (isStatus) {

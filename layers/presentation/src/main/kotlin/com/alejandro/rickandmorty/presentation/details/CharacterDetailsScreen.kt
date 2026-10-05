@@ -17,9 +17,11 @@ fun CharacterDetailsScreen(
     val viewmodel : CharacterDetailsViewModel = koinViewModel { parametersOf(characterId) }
     val state by viewmodel.state.collectAsStateWithLifecycle()
 
-
-    CharacterDetails(
-        modifier = modifier,
-        character = state.characterDetails
-    )
+    val character = state.characterDetails
+    if(character != null) {
+        CharacterDetails(
+            modifier = modifier,
+            character = character
+        )
+    }
 }
