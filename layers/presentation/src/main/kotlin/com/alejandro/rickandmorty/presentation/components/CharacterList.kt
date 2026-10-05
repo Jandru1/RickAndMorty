@@ -59,7 +59,7 @@ fun CharacterList(
                     contentAlignment = Alignment.Center,
                 ) {
                     if(isError) {
-                        TryAgainButton(modifier, onLoadMore)
+                        TryAgainButton(onClick = onLoadMore)
                     }
                     else {
                         LaunchedEffect(Unit) { onLoadMore() }

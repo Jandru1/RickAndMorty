@@ -57,7 +57,7 @@ fun CharacterCard(
             .background(MaterialTheme.colorScheme.surfaceContainer)
             .border(width = 1.dp, color = MaterialTheme.colorScheme.outlineVariant, shape = shape)
             .clickable { onClick(characterModel.id) }
-            .padding(3.dp),
+            .padding(5.dp),
     ) {
         AsyncImage(
             model = characterModel.image,
