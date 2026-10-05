@@ -1,10 +1,9 @@
-package com.alejandro.rickandmorty.data.dao
+package com.alejandro.rickandmorty.data.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Transaction
 import com.alejandro.rickandmorty.data.entity.local.CharacterLocalEntity
 import com.alejandro.rickandmorty.data.entity.local.PageLocalEntity
 

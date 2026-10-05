@@ -2,7 +2,8 @@ package com.alejandro.rickandmorty.lib.di.data
 
 import androidx.room.Room
 import com.alejandro.rickandmorty.data.api.RickAndMortyApi
-import com.alejandro.rickandmorty.data.dao.RickAndMortyDatabase
+import com.alejandro.rickandmorty.data.database.RickAndMortyDao
+import com.alejandro.rickandmorty.data.database.RickAndMortyDatabase
 import com.alejandro.rickandmorty.domain.repository.RickAndMortyRepository
 import com.alejandro.rickandmorty.data.repository.RickAndMortyRepositoryImpl
 import com.alejandro.rickandmorty.data.source.localsource.RickAndMortyLocalSource
@@ -35,10 +36,10 @@ val dataModule = module {
     }
 
     single<RickAndMortyApi> { get<Retrofit>().create(RickAndMortyApi::class.java) }
-    single<RickAndMortyRepository> { RickAndMortyRepositoryImpl(get()) }
+    single<RickAndMortyRepository> { RickAndMortyRepositoryImpl(get(), get()) }
     single<RickAndMortyRemoteMapper> { RickAndMortyRemoteMapperImpl() }
     single<RickAndMortyRemoteSource> { RickAndMortyRemoteSourceImpl(get(), get()) }
     single<RickAndMortyLocalMapper> { RickAndMortyLocalMapperImpl() }
     single<RickAndMortyLocalSource> { RickAndMortyLocalSourceImpl(get(), get()) }
-
+    single<RickAndMortyDao> { get<RickAndMortyDatabase>().dao() }
 }

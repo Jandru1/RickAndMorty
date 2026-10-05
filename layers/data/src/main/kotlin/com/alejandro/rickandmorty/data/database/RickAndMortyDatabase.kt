@@ -1,4 +1,4 @@
-package com.alejandro.rickandmorty.data.dao
+package com.alejandro.rickandmorty.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

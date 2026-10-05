@@ -1,6 +1,6 @@
 package com.alejandro.rickandmorty.data.source.localsource
 
-import com.alejandro.rickandmorty.data.dao.RickAndMortyDao
+import com.alejandro.rickandmorty.data.database.RickAndMortyDao
 import com.alejandro.rickandmorty.data.entity.local.PageLocalEntity
 import com.alejandro.rickandmorty.data.source.localsource.mapper.RickAndMortyLocalMapper
 import com.alejandro.rickandmorty.domain.model.CharacterListModel
