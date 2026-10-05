@@ -40,4 +40,14 @@ dependencies {
     implementation(libs.koin.androidx.compose)
     implementation(libs.navigation.compose)
     implementation(libs.androidx.compose.material.icons.core)
+
+    testImplementation(platform(libs.junit.jupiter.bom))
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.platform.launcher)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }

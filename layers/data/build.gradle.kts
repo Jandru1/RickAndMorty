@@ -30,4 +30,14 @@ dependencies {
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
 
+    testImplementation(platform(libs.junit.jupiter.bom))
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.platform.launcher)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
+
 }

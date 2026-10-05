@@ -1,6 +1,5 @@
 package com.alejandro.rickandmorty.data.repository
 
-import android.util.Log
 import com.alejandro.rickandmorty.data.source.localsource.RickAndMortyLocalSource
 import com.alejandro.rickandmorty.data.source.remotesource.RickAndMortyRemoteSource
 import com.alejandro.rickandmorty.domain.model.CharacterListModel
@@ -16,16 +15,14 @@ class RickAndMortyRepositoryImpl(
         if (name != null) return remoteSource.getCharacterList(page, name)
         val local = localSource.getCharacterList(page)
         if ( local != null ) return Result.success(local)
-        else {
-            val remote = remoteSource.getCharacterList(page, name)
-            if (remote.isSuccess) localSource.setCharacterList(page, remote.getOrThrow())
-            return remote
-        }
+        val remote = remoteSource.getCharacterList(page, name)
+        if (remote.isSuccess) localSource.setCharacterList(page, remote.getOrThrow())
+        return remote
     }
 
     override suspend fun getCharacterDetails(id: Int): Result<CharacterModel> {
         val local = localSource.getCharacterDetails(id)
         if ( local != null ) return Result.success(local)
-        else return remoteSource.getCharacterDetails(id)
+        return remoteSource.getCharacterDetails(id)
     }
 }
