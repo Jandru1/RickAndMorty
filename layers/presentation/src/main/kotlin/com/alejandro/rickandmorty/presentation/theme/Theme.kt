@@ -1,6 +1,7 @@
 package com.alejandro.rickandmorty.presentation.theme
 
 import android.os.Build
+import android.widget.Space
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -13,7 +14,14 @@ import androidx.compose.ui.platform.LocalContext
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
-    tertiary = Pink80
+    tertiary = Pink80,
+    background = SpaceBackground,
+    surface = SpaceSurface,
+    surfaceContainer = SpaceSurfaceContainer,
+    outlineVariant = SpaceOutline,
+    onBackground = SpaceOnSurface,
+    onSurface = SpaceOnSurface,
+    onSurfaceVariant = SpaceOnSurfaceVariant
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -34,9 +42,9 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun RickAndMortyTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = true,
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

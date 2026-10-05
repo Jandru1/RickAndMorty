@@ -76,7 +76,7 @@ fun CharacterCard(
                 Text(
                     textAlign = TextAlign.Justify,
                     text = "${characterModel.name} es un personaje de especie ${characterModel.species}",
-                    color = Color.White,
+                    color = Color.Black,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
