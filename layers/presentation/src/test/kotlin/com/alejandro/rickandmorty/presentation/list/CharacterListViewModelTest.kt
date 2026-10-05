@@ -6,6 +6,7 @@ import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.domain.model.CharacterStatus
 import com.alejandro.rickandmorty.domain.usecase.GetCharacterListUseCase
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -85,6 +86,25 @@ class CharacterListViewModelTest {
         assertFalse(state.hasNextPage)
     }
 
+    @Test
+    fun `search for characters only request the last query`() = runTest(testDispatcher) {
+        coEvery { getCharacterListUseCase(1, null) } returns Result.success(page1)
+        coEvery { getCharacterListUseCase(1, "rick") } returns Result.success(page2)
+
+        val viewModel = CharacterListViewModel(getCharacterListUseCase)
+        advanceUntilIdle()
+        viewModel.onQueryChange("r")
+        viewModel.onQueryChange("ri")
+        viewModel.onQueryChange("ric")
+        viewModel.onQueryChange("rick")
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { getCharacterListUseCase(1, "r") }
+        coVerify(exactly = 0) { getCharacterListUseCase(1, "ri") }
+        coVerify(exactly = 0) { getCharacterListUseCase(1, "ric") }
+        coVerify(exactly = 1) { getCharacterListUseCase(1, "rick") }
+        assertEquals(page2.characters, viewModel.state.value.characterList)
+    }
     private fun aCharacterModel(id: Int) = CharacterModel(
         id = id,
         name = "Rick",
