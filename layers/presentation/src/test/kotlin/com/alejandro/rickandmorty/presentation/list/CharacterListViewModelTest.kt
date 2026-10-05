@@ -16,7 +16,9 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.io.IOException
@@ -29,8 +31,8 @@ class CharacterListViewModelTest {
 
     private val page1 =
         CharacterListModel(characters = listOf(aCharacterModel(id = 1)), hasNextPage = true)
-    private val page2: CharacterListModel
-        get() = CharacterListModel(characters = listOf(aCharacterModel(id = 2)), hasNextPage = false)
+    private val page2 =
+        CharacterListModel(characters = listOf(aCharacterModel(id = 2)), hasNextPage = false)
 
     @BeforeEach
     fun setUp() {

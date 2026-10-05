@@ -4,7 +4,6 @@ import com.alejandro.rickandmorty.domain.model.CharacterGender
 import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.domain.model.CharacterStatus
 import com.alejandro.rickandmorty.domain.usecase.GetCharacterDetailsUseCase
-import com.alejandro.rickandmorty.presentation.components.CharacterDetails
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +14,10 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.io.IOException
@@ -37,23 +39,21 @@ class CharacterDetailsViewModelTest {
         Dispatchers.resetMain()
     }
     @Test
-    fun `load the details on start`() = runTest {
+    fun `load the details on start`() = runTest(testDispatcher) {
         coEvery { getCharacterDetailsUseCase(1) } returns Result.success(aCharacterModel(1))
         val viewModel = CharacterDetailsViewModel(1, getCharacterDetailsUseCase)
-        viewModel.loadDetails()
         advanceUntilIdle()
 
         val state = viewModel.state.value
         assertFalse(state.loading)
         assertFalse(state.error)
-        assertEquals(state.characterDetails, aCharacterModel(1))
+        assertEquals(aCharacterModel(1),state.characterDetails)
     }
 
     @Test
-    fun `shows error when api call fails`() = runTest {
+    fun `shows error when api call fails`() = runTest(testDispatcher) {
         coEvery { getCharacterDetailsUseCase(1) } returns Result.failure(IOException())
         val viewModel = CharacterDetailsViewModel(1, getCharacterDetailsUseCase)
-        viewModel.loadDetails()
         advanceUntilIdle()
 
         val state = viewModel.state.value
@@ -64,7 +64,7 @@ class CharacterDetailsViewModelTest {
     }
 
     private fun aCharacterModel(id: Int) = CharacterModel(
-        id = 1,
+        id = id,
         name = "Rick",
         status = CharacterStatus.ALIVE,
         species = "Human",

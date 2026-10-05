@@ -25,7 +25,7 @@ class RickAndMortyRemoteMapperImplTest {
         val model = mapper.toModel(entity)
         val expectedModel = CharacterModel(
             id = 0,
-            name = "name",
+            name = "Rick",
             status = CharacterStatus.ALIVE,
             species = "species",
             type = "type",
@@ -68,11 +68,11 @@ class RickAndMortyRemoteMapperImplTest {
         val expectedModel = CharacterListModel(
             characters = listOf(CharacterModel(
                 id = 0,
-                name = "name",
-                status = CharacterStatus.UNKNOWN,
+                name = "Rick",
+                status = CharacterStatus.ALIVE,
                 species = "species",
                 type = "type",
-                gender = CharacterGender.UNKNOWN,
+                gender = CharacterGender.MALE,
                 origin = "name",
                 location = "name",
                 image = "image",

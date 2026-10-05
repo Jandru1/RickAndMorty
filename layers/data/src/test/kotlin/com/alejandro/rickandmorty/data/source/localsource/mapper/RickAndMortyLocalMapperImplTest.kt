@@ -3,7 +3,7 @@ package com.alejandro.rickandmorty.data.source.localsource.mapper
 import com.alejandro.rickandmorty.domain.model.CharacterGender
 import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.domain.model.CharacterStatus
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class RickAndMortyLocalMapperImplTest {

@@ -1,7 +1,7 @@
 package com.alejandro.rickandmorty.data.source.remotesource
 
 import com.alejandro.rickandmorty.data.api.RickAndMortyApi
-import com.alejandro.rickandmorty.data.source.remotesource.mapper.RickAndMortyRemoteMapperImpl
+import com.alejandro.rickandmorty.data.source.remotesource.mapper.RickAndMortyRemoteMapper
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
@@ -16,7 +16,7 @@ class RickAndMortyRemoteSourceImplTest {
 
     private val api: RickAndMortyApi = mockk()
 
-    private val mapper: RickAndMortyRemoteMapperImpl = mockk()
+    private val mapper: RickAndMortyRemoteMapper = mockk()
     private val remoteSource = RickAndMortyRemoteSourceImpl(api, mapper)
 
     @Test
