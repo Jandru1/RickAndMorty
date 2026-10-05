@@ -3,6 +3,7 @@ package com.alejandro.rickandmorty.presentation.components
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -34,7 +35,7 @@ fun CharacterListPreview() {
 fun CharacterList(
     characterModels: List<CharacterModel>,
     modifier: Modifier = Modifier,
-    onClick: (CharacterModel) -> Unit,
+    onClick: (Int) -> Unit,
     hasNextPage: Boolean = true,
     onLoadMore: () -> Unit = {},
     isError: Boolean = false
@@ -49,14 +50,15 @@ fun CharacterList(
             CharacterCard(
                 characterModel = character,
                 modifier = Modifier,
-                onClick = { onClick(character) }
+                onClick = onClick
             )
         }
         if(hasNextPage) {
 
             item {
                 Box(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth()
+                        .height(120.dp),
                     contentAlignment = Alignment.Center,
                 ) {
                     if(isError) {

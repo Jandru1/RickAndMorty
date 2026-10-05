@@ -38,13 +38,13 @@ fun CharacterCardPreview() {
 @Composable
 fun CharacterCard(
     characterModel: CharacterModel,
-    onClick: () -> Unit,
+    onClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .padding(8.dp),
-        onClick = onClick
+        onClick = { onClick(characterModel.id) }
     ) {
         Row (
             verticalAlignment = Alignment.CenterVertically,

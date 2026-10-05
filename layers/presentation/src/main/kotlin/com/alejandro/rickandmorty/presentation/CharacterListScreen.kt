@@ -11,6 +11,7 @@ import androidx.compose.runtime.collectAsState
 @Composable
 fun CharacterListScreen(
     modifier: Modifier = Modifier,
+    onClick: (Int) -> Unit
 ) {
 
     val viewModel: CharacterListViewModel = koinViewModel()
@@ -19,7 +20,7 @@ fun CharacterListScreen(
     CharacterList(
         modifier = modifier,
         characterModels = state.characterList,
-        onClick = {},
+        onClick = onClick,
         onLoadMore = { viewModel.loadNextPage() },
         hasNextPage = state.hasNextPage,
         isError = state.isError

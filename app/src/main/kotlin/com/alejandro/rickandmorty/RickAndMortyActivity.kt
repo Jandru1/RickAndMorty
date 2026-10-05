@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.alejandro.rickandmorty.presentation.CharacterListScreen
+import com.alejandro.rickandmorty.presentation.navigation.NavigationGraph
 import com.alejandro.rickandmorty.presentation.theme.RickAndMortyTheme
 
 class RickAndMortyActivity : ComponentActivity() {
@@ -19,7 +20,7 @@ class RickAndMortyActivity : ComponentActivity() {
         setContent {
             RickAndMortyTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    CharacterListScreen(
+                    NavigationGraph(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
