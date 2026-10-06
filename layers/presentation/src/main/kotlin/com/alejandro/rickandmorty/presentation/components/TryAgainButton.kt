@@ -27,7 +27,7 @@ fun TryAgainButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     ) {
-    OutlinedButton( //Boton de material con borde
+    OutlinedButton(
         onClick = onClick,
         shape = RoundedCornerShape(50),
         border = BorderStroke(width = 1.dp, color = MaterialTheme.colorScheme.outlineVariant),

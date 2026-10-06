@@ -24,20 +24,20 @@ fun EmptyScreen(query: String, modifier: Modifier = Modifier) {
             .padding(32.dp),
     ) {
         Text(
-            text = "SIN RESULTADOS",
+            text = "WITHOUT RESULTS",
             style = MaterialTheme.typography.labelMedium,
             letterSpacing = 3.sp,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Text(
-            text = "Nadie por aquí",
+            text = "No one around here",
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.padding(top = 12.dp),
         )
         Text(
-            text = "No hemos encontrado ningún personaje que coincida con «$query».",
+            text = "we couldn't find any character with «$query».",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,

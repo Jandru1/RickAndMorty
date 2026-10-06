@@ -4,7 +4,6 @@ import androidx.room.Room
 import com.alejandro.rickandmorty.data.api.RickAndMortyApi
 import com.alejandro.rickandmorty.data.database.RickAndMortyDao
 import com.alejandro.rickandmorty.data.database.RickAndMortyDatabase
-import com.alejandro.rickandmorty.domain.repository.RickAndMortyRepository
 import com.alejandro.rickandmorty.data.repository.RickAndMortyRepositoryImpl
 import com.alejandro.rickandmorty.data.source.localsource.RickAndMortyLocalSource
 import com.alejandro.rickandmorty.data.source.localsource.RickAndMortyLocalSourceImpl
@@ -14,6 +13,7 @@ import com.alejandro.rickandmorty.data.source.remotesource.RickAndMortyRemoteSou
 import com.alejandro.rickandmorty.data.source.remotesource.RickAndMortyRemoteSourceImpl
 import com.alejandro.rickandmorty.data.source.remotesource.mapper.RickAndMortyRemoteMapper
 import com.alejandro.rickandmorty.data.source.remotesource.mapper.RickAndMortyRemoteMapperImpl
+import com.alejandro.rickandmorty.domain.repository.RickAndMortyRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit

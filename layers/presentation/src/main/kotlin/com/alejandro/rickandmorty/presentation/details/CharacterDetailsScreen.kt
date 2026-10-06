@@ -2,9 +2,6 @@ package com.alejandro.rickandmorty.presentation.details
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.alejandro.rickandmorty.presentation.components.CharacterDetails

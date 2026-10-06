@@ -1,6 +1,5 @@
 package com.alejandro.rickandmorty.presentation.list
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alejandro.rickandmorty.domain.usecase.GetCharacterListUseCase

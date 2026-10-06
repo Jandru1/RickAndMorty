@@ -1,7 +1,6 @@
 package com.alejandro.rickandmorty.data.source.localsource.mapper
 
 import com.alejandro.rickandmorty.data.entity.local.CharacterLocalEntity
-import com.alejandro.rickandmorty.data.entity.local.PageLocalEntity
 import com.alejandro.rickandmorty.domain.model.CharacterGender
 import com.alejandro.rickandmorty.domain.model.CharacterModel
 import com.alejandro.rickandmorty.domain.model.CharacterStatus

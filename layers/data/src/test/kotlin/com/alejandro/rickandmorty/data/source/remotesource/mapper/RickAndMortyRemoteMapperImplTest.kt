@@ -4,7 +4,6 @@ import com.alejandro.rickandmorty.data.entity.remote.CharacterEntity
 import com.alejandro.rickandmorty.data.entity.remote.InfoEntity
 import com.alejandro.rickandmorty.data.entity.remote.ResponseCharacterEntity
 import com.alejandro.rickandmorty.data.source.remotesource.mapper.mock.CharacterEntityMock
-import com.alejandro.rickandmorty.data.source.remotesource.mapper.mock.InfoEntityMock
 import com.alejandro.rickandmorty.data.source.remotesource.mapper.mock.ResponseCharacterEntityMock
 import com.alejandro.rickandmorty.domain.model.CharacterGender
 import com.alejandro.rickandmorty.domain.model.CharacterListModel

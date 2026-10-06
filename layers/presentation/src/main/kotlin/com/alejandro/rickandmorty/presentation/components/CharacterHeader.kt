@@ -58,7 +58,7 @@ fun CharacterHeader(character: CharacterModel, modifier: Modifier = Modifier) {
                 .padding(20.dp),
         ) {
             Text(
-                text = "PERSONAJE / #${character.id}",
+                text = "CHARACTER / #${character.id}",
                 style = MaterialTheme.typography.labelMedium,
                 letterSpacing = 3.sp,
                 color = Color.White.copy(alpha = 0.7f),

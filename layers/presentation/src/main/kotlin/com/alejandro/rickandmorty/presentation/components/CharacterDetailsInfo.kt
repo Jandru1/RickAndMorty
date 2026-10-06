@@ -14,7 +14,7 @@ fun CharacterDetailsInfo(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .verticalScroll(rememberScrollState())
     ) {
@@ -27,17 +27,17 @@ fun CharacterDetailsInfo(
         )
         InfoRow(
             modifier = Modifier.fillMaxWidth(),
-            title = "Especie",
+            title = "Species ",
             value = character.species
         )
         InfoRow(
             modifier = Modifier.fillMaxWidth(),
-            title = "Tipo",
+            title = "Type",
             value = character.type
         )
         InfoRow(
             modifier = Modifier.fillMaxWidth(),
-            title = "Genero",
+            title = "Gender",
             value = character.gender.mapGender()
         )
         InfoRow(

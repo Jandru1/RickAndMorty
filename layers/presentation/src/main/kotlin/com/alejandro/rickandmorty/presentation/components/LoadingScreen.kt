@@ -25,7 +25,7 @@ fun LoadingScreen(modifier: Modifier = Modifier) {
             strokeWidth = 2.dp,
         )
         Text(
-            text = "CARGANDO",
+            text = "LOADING",
             style = MaterialTheme.typography.labelMedium,
             letterSpacing = 3.sp,
             color = MaterialTheme.colorScheme.onSurfaceVariant,

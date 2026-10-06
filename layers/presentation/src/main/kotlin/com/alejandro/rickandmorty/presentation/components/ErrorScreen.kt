@@ -25,20 +25,20 @@ fun ErrorScreen(onRetry: () -> Unit, modifier: Modifier = Modifier) {
             .padding(32.dp),
     ) {
         Text(
-            text = "ERROR / SIN SEÑAL",
+            text = "ERROR / NO SIGNAL",
             style = MaterialTheme.typography.labelMedium,
             letterSpacing = 3.sp,
             color = DeadRed,
         )
         Text(
-            text = "Algo ha fallado",
+            text = "Something went wrong",
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.padding(top = 12.dp),
         )
         Text(
-            text = "No hemos podido cargar los datos. Comprueba tu conexión e inténtalo de nuevo.",
+            text = "We were unable to load data. Check your connection and try again.",
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,

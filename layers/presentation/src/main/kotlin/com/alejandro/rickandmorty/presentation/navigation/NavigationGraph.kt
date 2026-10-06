@@ -7,8 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.alejandro.rickandmorty.presentation.list.CharacterListScreen
 import com.alejandro.rickandmorty.presentation.details.CharacterDetailsScreen
+import com.alejandro.rickandmorty.presentation.list.CharacterListScreen
 
 @Composable
 fun NavigationGraph(
