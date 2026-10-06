@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,10 +33,9 @@ fun CharacterHeader(character: CharacterModel, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .padding(bottom = 10.dp)
-            .fillMaxWidth()
-            .aspectRatio(1f)
             .clip(shape)
             .border(width = 3.dp, color = MaterialTheme.colorScheme.outlineVariant, shape = shape)
+            .aspectRatio(1f)
     ) {
         AsyncImage(
             model = character.image,
@@ -55,7 +56,8 @@ fun CharacterHeader(character: CharacterModel, modifier: Modifier = Modifier) {
         Column(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .padding(20.dp),
+                .padding(20.dp)
+                .verticalScroll(rememberScrollState())
         ) {
             Text(
                 text = "CHARACTER / #${character.id}",

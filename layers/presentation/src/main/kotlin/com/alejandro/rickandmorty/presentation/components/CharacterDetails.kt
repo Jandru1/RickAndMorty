@@ -1,9 +1,11 @@
 package com.alejandro.rickandmorty.presentation.components
 
+import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.alejandro.rickandmorty.domain.model.CharacterModel
@@ -15,15 +17,16 @@ fun CharacterDetails(
 ) {
     Column(
         modifier = modifier
-            .padding(15.dp)
+            .padding(15.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         CharacterHeader(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.weight(0.45f),
             character = character
         )
         CharacterDetailsInfo(
             character = character,
-            modifier = Modifier
+            modifier = Modifier.weight(0.55f)
         )
     }
 }
