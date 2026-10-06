@@ -23,32 +23,9 @@ fun CharacterDetails(
             modifier = Modifier.fillMaxWidth(),
             character = character
         )
-        Column(
-            modifier = Modifier.fillMaxWidth()
-                .verticalScroll(rememberScrollState())
-        ) {
-            InfoRow(
-                modifier = Modifier.fillMaxWidth(),
-                title = "Status",
-                value = character.status.mapStatus(),
-                isStatus = true,
-                backgroundColor = character.status.mapColor()
-            )
-            InfoRow(
-                modifier = Modifier.fillMaxWidth(),
-                title = "Especie",
-                value = character.species
-            )
-            InfoRow(
-                modifier = Modifier.fillMaxWidth(),
-                title = "Tipo",
-                value = character.type
-            )
-            InfoRow(
-                modifier = Modifier.fillMaxWidth(),
-                title = "Genero",
-                value = character.gender.mapGender()
-            )
-        }
+        CharacterDetailsInfo(
+            character = character,
+            modifier = Modifier
+        )
     }
 }
