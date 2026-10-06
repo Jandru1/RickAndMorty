@@ -43,17 +43,17 @@ Clean Architecture split into **Gradle modules by layer**, so the dependency rul
 | `:layers:lib` | Dependency injection wiring (Koin). The only module that knows every implementation. |
 | `:app` | `Application`, single `Activity` and navigation host. |
 
-p`resentation` never sees `data`: the ViewModels depend on use case interfaces, and `lib` binds them to their implementations.
+`presentation` never sees `data`: the ViewModels depend on use case interfaces, and `lib` binds them to their implementations.
 
 ### Data flow
 
-
+```
 Screen ─► ViewModel ─► UseCase ─► Repository ─┬─► LocalSource  (Room)
 ▲          │                               └─► RemoteSource (Retrofit)
 └── StateFlow
+```
 
-
-Each ViewModel exposes a single immutable state through a `StateFlow`, collected in Compose with `collectAsStateWithLifecycle().
+Each ViewModel exposes a single immutable state through a `StateFlow`, collected in Compose with `collectAsStateWithLifecycle()`.
 
 ## Technical decisions
 
@@ -78,7 +78,7 @@ Each ViewModel exposes a single immutable state through a `StateFlow`, collected
 
 - **Search debounce (400 ms):** each keystroke cancels the previous pending search, so only the last query hits the API.
 - **No results:** the API answers `404` when a search has no matches. The remote source maps it to an empty page, so the UI shows an empty state instead of an error.
-- **Cancellation:** `CancellationException is rethrown in the data layer, so a search cancelled by a newer one is never shown as an error.
+- **Cancellation:** `CancellationException` is rethrown in the data layer, so a search cancelled by a newer one is never shown as an error.
 - **List footer with fixed height:** it switches between a progress indicator and a retry button. A fixed height avoids the list jumping when one replaces the other.
 - **Detail layout:** the image stays fixed while the information scrolls below it. Space is split with weights instead of fixed sizes, so it adapts to any screen.
 
@@ -90,7 +90,7 @@ Each ViewModel exposes a single immutable state through a `StateFlow`, collected
 |--------------------------------|---|
 | `RickAndMortyRemoteMapperImpl` | Field mapping, null defaults, status mapping, next page detection |
 | `RickAndMortyLocalMapperImpl`  | A character saved and read back is unchanged |
-| `RickAndMortyRemoteSourceImpl` | `404 → empty page, other errors → failure |
+| `RickAndMortyRemoteSourceImpl` | `404` → empty page, other errors → failure |
 | `RickAndMortyRepositoryImpl`   | The caching strategy: search, cached page, page fetched and saved, nothing saved on error, cached detail |
 | `CharacterListViewModel`       | First load, error, pagination, search debounce |
 | `CharacterDetailsViewModel`    | Success and error |
@@ -129,4 +129,4 @@ I understand and can explain every part of the code.
 - **More detailed error handling:** distinguish between no connection, server errors and rate limiting (`429`), with a specific message for each.
 - **Favorite characters**, stored locally with Room.
 - **Filter by status** (alive / dead / unknown), supported by the API.
-- **Adaptive detail layout:** image on the left and information on the right in land
+- **Adaptive detail layout:** image on the left and information on the right in landscape
