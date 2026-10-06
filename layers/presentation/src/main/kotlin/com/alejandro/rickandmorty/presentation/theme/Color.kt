@@ -10,12 +10,12 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-val SpaceBackground = Color(0xFF0B0F1A)        // fondo de la pantalla
-val SpaceSurface = Color(0xFF111827)           // superficies (tarjetas)
-val SpaceSurfaceContainer = Color(0xFF151C2E)  // fondo de las InfoRow
-val SpaceOutline = Color(0xFF2A3350)           // bordes finos
-val SpaceOnSurface = Color(0xFFF1F5F9)         // texto principal (casi blanco)
-val SpaceOnSurfaceVariant = Color(0xFFCBD5E1)  // texto secundario (gris azulado)
+val SpaceBackground = Color(0xFF0B0F1A)
+val SpaceSurface = Color(0xFF111827)
+val SpaceSurfaceContainer = Color(0xFF151C2E)
+val SpaceOutline = Color(0xFF2A3350)
+val SpaceOnSurface = Color(0xFFF1F5F9)
+val SpaceOnSurfaceVariant = Color(0xFFCBD5E1)
 
 val AliveGreen = Color(0xFF4ADE80)
 val DeadRed = Color(0xFFF87172)

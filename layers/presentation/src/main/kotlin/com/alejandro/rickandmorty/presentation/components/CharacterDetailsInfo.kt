@@ -27,7 +27,7 @@ fun CharacterDetailsInfo(
         )
         InfoRow(
             modifier = Modifier.fillMaxWidth(),
-            title = "Species ",
+            title = "Species",
             value = character.species
         )
         InfoRow(
